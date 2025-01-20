@@ -36,7 +36,6 @@ public class Main {
                     System.out.println("Exiting the program.");
                     return;
             }
-
         }
     }
 
