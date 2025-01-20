@@ -111,6 +111,8 @@ public class Main {
             while (allBooksByAuthorResultSet.next()){
                 System.out.println(allBooksByAuthorResultSet.getString("Naslov"));
             }
+            bookStmt.close();
+            connection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -126,7 +128,8 @@ public class Main {
             updateBookTitleByIdStmt.setString(1,newTitle);
             updateBookTitleByIdStmt.executeUpdate();
             System.out.println("Book title was updated");
-
+            updateBookTitleByIdStmt.close();
+            connection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -148,6 +151,8 @@ public class Main {
                 String lastName = resultSet.getString("Prezime");
                 System.out.println("Autor bez knjiga: " + firstName + " " + lastName + " (ID: " + authorId + ")");
             }
+            authorsWithNoBooksStmt.close();
+            connection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
